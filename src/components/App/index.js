@@ -1,6 +1,8 @@
 import React, { PropTypes, Component } from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import classnames from 'classnames';
 
+import SearchBar from '../SearchBar/index.js';
 import logo from './logo.svg';
 import './style.css';
 
@@ -8,15 +10,11 @@ class App extends Component {
   render() {
     const { className, ...props } = this.props;
     return (
-      <div className={classnames('App', className)} {...props}>
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <MuiThemeProvider>
+        <div className={classnames('App', className)} {...props}>
+            <SearchBar/>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/components/App/index.js</code> and save to reload.
-        </p>
-      </div>
+      </MuiThemeProvider>
     );
   }
 }
