@@ -1,15 +1,14 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import classnames from 'classnames';
 
 import SearchBar from '../SearchBar/index.js';
 import objectAssign from 'object-assign';
-import logo from './logo.svg';
 import './style.css';
 
 class App extends Component {
     state = {
-        selectedIndex: 0,
+        selectedIndex: 'all',
         searchValue: ''
     };
 
@@ -26,11 +25,10 @@ class App extends Component {
     };
 
     render() {
-        const { className, ...props } = this.props;
+        const { className } = this.props;
         return (
             <MuiThemeProvider>
-                <div className={classnames('App', className)} {...props}>
-                    <div>{this.state.searchValue}</div>
+                <div className={classnames('App', className)}>
                     <SearchBar
                         selectedIndex={this.state.selectedIndex}
                         searchValue={this.state.searchValue}

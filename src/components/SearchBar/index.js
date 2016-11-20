@@ -1,6 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 import classnames from 'classnames';
-import objectAssign from 'object-assign';
 
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -42,11 +41,12 @@ export default class SearchBar extends Component {
     };
 
     render() {
-        const { className, selectedIndex, searchValue, ...props } = this.props;
+        const { className, selectedIndex, searchValue } = this.props;
         return (
-            <div className={classnames('SearchBar', className)} {...props}>
+            <div className={classnames('SearchBar', className)}>
                 <TextField
                     hintText="Search Here"
+                    value={searchValue}
                     onChange={this.onSearchChange}
                 />
                 <RaisedButton
@@ -55,26 +55,30 @@ export default class SearchBar extends Component {
                     style={style}
                     onTouchTap={this.search}
                 />
-                <Tabs selectedIndex={selectedIndex}>
+                <Tabs value={selectedIndex}>
                     <Tab
                         icon={allIcon}
                         label="ALL"
-                        onTouchTap={() => this.select(0)}
+                        onTouchTap={() => this.select('all')}
+                        value='all'
                     />
                     <Tab
                         icon={imagesIcon}
                         label="IMAGES"
-                        onTouchTap={() => this.select(1)}
+                        onTouchTap={() => this.select('images')}
+                        value='images'
                     />
                     <Tab
                         icon={peopleIcon}
                         label="PEOPLE"
-                        onTouchTap={() => this.select(2)}
+                        onTouchTap={() => this.select('people')}
+                        value='people'
                     />
                     <Tab
                         icon={exhibitionsIcon}
                         label="EXHIBITIONS"
-                        onTouchTap={() => this.select(3)}
+                        onTouchTap={() => this.select('exhibitions')}
+                        value='exhibitions'
                     />
                 </Tabs>
             </div>
