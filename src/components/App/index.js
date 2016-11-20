@@ -17,6 +17,8 @@ class App extends Component {
         selectedIndex = 2;
       } else if (pathname == '/exhibitions') {
         selectedIndex = 3;
+      } else if (pathname == '/places') {
+        selectedIndex = 4;
       }
 
       this.state = {

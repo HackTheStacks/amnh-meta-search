@@ -11,6 +11,7 @@ const Routes = (props) => (
         <Route path='/images' component={App} />
         <Route path='/people' component={App} />
         <Route path='/exhibitions' component={App} />
+        <Route path='/places' component={App} />
         <Route path='/about' component={About} />
         <Route path='*' component={NotFound} />
     </Router>
