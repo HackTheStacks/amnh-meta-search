@@ -57,24 +57,24 @@ export default class SearchBar extends Component {
                 />
                 <Tabs selectedIndex={selectedIndex}>
                     <Tab
-                      icon={allIcon}
-                      label="ALL"
-                      onTouchTap={() => this.select(0)}
+                        icon={allIcon}
+                        label="ALL"
+                        onTouchTap={() => this.select(0)}
                     />
                     <Tab
-                      icon={imagesIcon}
-                      label="IMAGES"
-                      onTouchTap={() => this.select(1)}
+                        icon={imagesIcon}
+                        label="IMAGES"
+                        onTouchTap={() => this.select(1)}
                     />
                     <Tab
-                      icon={peopleIcon}
-                      label="PEOPLE"
-                      onTouchTap={() => this.select(2)}
+                        icon={peopleIcon}
+                        label="PEOPLE"
+                        onTouchTap={() => this.select(2)}
                     />
                     <Tab
-                      icon={exhibitionsIcon}
-                      label="EXHIBITIONS"
-                      onTouchTap={() => this.select(3)}
+                        icon={exhibitionsIcon}
+                        label="EXHIBITIONS"
+                        onTouchTap={() => this.select(3)}
                     />
                 </Tabs>
             </div>

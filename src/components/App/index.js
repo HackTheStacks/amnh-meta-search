@@ -8,40 +8,40 @@ import logo from './logo.svg';
 import './style.css';
 
 class App extends Component {
-  state = {
-      selectedIndex: 0,
-      searchValue: ''
-  };
+    state = {
+        selectedIndex: 0,
+        searchValue: ''
+    };
 
-  onSearchChange = (searchValue) => {
-      this.setState(objectAssign(this.state, {searchValue}));
-  };
+    onSearchChange = (searchValue) => {
+        this.setState(objectAssign(this.state, {searchValue}));
+    };
 
-  select = (selectedIndex) => {
-      this.setState(objectAssign(this.state, {selectedIndex}));
-  };
+    select = (selectedIndex) => {
+        this.setState(objectAssign(this.state, {selectedIndex}));
+    };
 
-  search = () => {
-      console.log(this.state.searchValue);
-  };
+    search = () => {
+        console.log(this.state.searchValue);
+    };
 
-  render() {
-    const { className, ...props } = this.props;
-    return (
-      <MuiThemeProvider>
-          <div className={classnames('App', className)} {...props}>
-              <div>{this.state.searchValue}</div>
-              <SearchBar
-                selectedIndex={this.state.selectedIndex}
-                searchValue={this.state.searchValue}
-                onSearchChange={this.onSearchChange}
-                select={this.select}
-                search={this.search}
-              />
-          </div>
-      </MuiThemeProvider>
-    );
-  }
+    render() {
+        const { className, ...props } = this.props;
+        return (
+            <MuiThemeProvider>
+                <div className={classnames('App', className)} {...props}>
+                    <div>{this.state.searchValue}</div>
+                    <SearchBar
+                        selectedIndex={this.state.selectedIndex}
+                        searchValue={this.state.searchValue}
+                        onSearchChange={this.onSearchChange}
+                        select={this.select}
+                        search={this.search}
+                    />
+                </div>
+            </MuiThemeProvider>
+        );
+    }
 }
 
 export default App;
