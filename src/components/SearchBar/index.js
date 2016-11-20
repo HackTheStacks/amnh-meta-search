@@ -28,21 +28,17 @@ export default class SearchBar extends Component {
         this.select = this.select.bind(this);
         this.onSearchChange = this.onSearchChange.bind(this);
     }
-    state = {
-        selectedIndex: 0,
-        searchValue: ''
-    };
 
     onSearchChange = (e) => {
-        this.setState(objectAssign(this.state, {searchValue: e.target.value}));
+        this.props.onSearchChange(e.target.value);
     };
 
     select = (index) => {
-        this.setState(objectAssign(this.state, {selectedIndex: index}));
+        this.props.select(index);
     };
 
     search = () => {
-        console.log(this.state.searchValue);
+        this.props.search();
     };
 
     render() {
