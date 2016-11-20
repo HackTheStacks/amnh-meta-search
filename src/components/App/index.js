@@ -8,10 +8,23 @@ import logo from './logo.svg';
 import './style.css';
 
 class App extends Component {
-    state = {
-        selectedIndex: 0,
-        searchValue: ''
-    };
+    constructor(props) {
+      super(props);
+      var selectedIndex;
+      var pathname = props.location.pathname;
+      if (pathname == '/images') {
+        selectedIndex = 1;
+      } else if (pathname == '/people') {
+        selectedIndex = 2;
+      } else if (pathname == '/exhibitions') {
+        selectedIndex = 3;
+      }
+
+      this.state = {
+          selectedIndex: selectedIndex,
+          searchValue: ''
+      };
+    }
 
     onSearchChange = (searchValue) => {
         this.setState(objectAssign(this.state, {searchValue}));
