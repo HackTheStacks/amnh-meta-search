@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import classnames from 'classnames';
+import objectAssign from 'object-assign';
 
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -21,25 +22,44 @@ const style = {
 };
 
 export default class SearchBar extends Component {
+    constructor(props) {
+        super(props);
+        this.search = this.search.bind(this);
+        this.select = this.select.bind(this);
+        this.onSearchChange = this.onSearchChange.bind(this);
+    }
     state = {
         selectedIndex: 0,
+        searchValue: ''
     };
 
-    select = (index) => this.setState({selectedIndex: index});
+    onSearchChange = (e) => {
+        this.setState(objectAssign(this.state, {searchValue: e.target.value}));
+    };
+
+    select = (index) => {
+        this.setState(objectAssign(this.state, {selectedIndex: index}));
+    };
+
+    search = () => {
+        console.log(this.state.searchValue);
+    };
 
     render() {
-        const { className, ...props } = this.props;
+        const { className, selectedIndex, searchValue, ...props } = this.props;
         return (
             <div className={classnames('SearchBar', className)} {...props}>
                 <TextField
                     hintText="Search Here"
+                    onChange={this.onSearchChange}
                 />
                 <RaisedButton
                     label="Search"
                     primary={true}
-                    style={style} 
+                    style={style}
+                    onTouchTap={this.search}
                 />
-                <Tabs selectedIndex={this.state.selectedIndex}>
+                <Tabs selectedIndex={selectedIndex}>
                     <Tab
                       icon={allIcon}
                       label="ALL"
