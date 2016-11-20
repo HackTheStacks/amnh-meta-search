@@ -55,7 +55,7 @@ export default class SearchBar extends Component {
                     style={style}
                     onTouchTap={this.search}
                 />
-                <Tabs selectedIndex={selectedIndex}>
+                <Tabs initialSelectedIndex={selectedIndex}>
                     <Tab
                         icon={allIcon}
                         label="ALL"
