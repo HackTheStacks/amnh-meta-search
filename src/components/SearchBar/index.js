@@ -15,6 +15,7 @@ const allIcon = makeIcon('all_inclusive');
 const peopleIcon = makeIcon('perm_identity');
 const imagesIcon = makeIcon('filter');
 const exhibitionsIcon = makeIcon('rowing');
+const placesIcon = makeIcon('location_city');
 
 const style = {
     margin: 12
@@ -77,6 +78,12 @@ export default class SearchBar extends Component {
                     <Tab
                         icon={exhibitionsIcon}
                         label="EXHIBITIONS"
+                        onTouchTap={() => this.select('exhibitions')}
+                        value='exhibitions'
+                    />
+                    <Tab
+                        icon={placesIcon}
+                        label="PLACES"
                         onTouchTap={() => this.select('exhibitions')}
                         value='exhibitions'
                     />
